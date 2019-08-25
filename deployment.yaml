@@ -1,13 +1,18 @@
-apiVersion: apps/v1beta2
+apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: phppm
   namespace: mcmirror
+  labels:
+    app: mcmirror-phppm
 spec:
   template:
+    metadata:
+      labels:
+        app: mcmirror-phppm
     spec:
       containers:
-      - image: connectedgames/mcmirror:latest
+      - image: ${CICD_IMAGE}:${CICD_EXECUTION_SEQUENCE}
         imagePullPolicy: Always
         name: phppm
         ports:
@@ -37,4 +42,4 @@ spec:
         name: mcmirror-config
   selector:
     matchLabels:
-      workload.user.cattle.io/workloadselector: deployment-mcmirror-phppm
+      app: mcmirror-phppm
