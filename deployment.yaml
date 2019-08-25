@@ -11,14 +11,14 @@ spec:
       labels:
         app: mcmirror-phppm
     spec:
+      imagePullSecrets:
+        - name: pipeline-docker-registry
       containers:
       - image: ${CICD_IMAGE}:${CICD_EXECUTION_SEQUENCE}
-        imagePullPolicy: Always
         name: phppm
         ports:
         - containerPort: 80
           protocol: TCP
-        resources: {}
         volumeMounts:
         - mountPath: /var/www/
           name: mcmirror-builds
@@ -27,10 +27,7 @@ spec:
           name: mcmirror-config
           readOnly: true
           subPath: .env
-      dnsPolicy: ClusterFirst
       restartPolicy: Always
-      schedulerName: default-scheduler
-      terminationGracePeriodSeconds: 30
       volumes:
       - name: mcmirror-builds
         persistentVolumeClaim:
