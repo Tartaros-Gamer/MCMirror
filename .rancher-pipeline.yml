@@ -1,4 +1,4 @@
-﻿stages:
+stages:
 - name: Build
   steps:
   - publishImageConfig:
@@ -7,6 +7,8 @@
       tag: connectedgames/mcmirror:latest
       pushRemote: true
       registry: index.docker.io
+- name: Deploy
+  steps:
   - applyYamlConfig:
       path: ./deployment.yaml
 timeout: 60
