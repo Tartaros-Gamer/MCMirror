@@ -1,5 +1,16 @@
-﻿stages:
+stages:
 - name: Build
+  steps:
+  - publishImageConfig:
+      dockerfilePath: ./Dockerfile
+      buildContext: .
+      tag: mcmirror-phppm:${CICD_EXECUTION_SEQUENCE}
+      registry: index.docker.io
+- name: Deploy
+  steps:
+  - applyYamlConfig:
+      path: ./deployment.yaml
+- name: Docker Hub
   steps:
   - publishImageConfig:
       dockerfilePath: ./Dockerfile
@@ -7,13 +18,4 @@
       tag: connectedgames/mcmirror:latest
       pushRemote: true
       registry: index.docker.io
-
-  - publishImageConfig:
-      dockerfilePath: ./Dockerfile
-      buildContext: .
-      tag: mcmirror-phppm:${CICD_EXECUTION_SEQUENCE}
-- name: Deploy
-  steps:
-  - applyYamlConfig:
-      path: ./deployment.yaml
 timeout: 60
