@@ -1,0 +1,40 @@
+apiVersion: apps/v1beta2
+kind: Deployment
+metadata:
+  name: phppm
+  namespace: mcmirror
+spec:
+  template:
+    spec:
+      containers:
+      - image: connectedgames/mcmirror:latest
+        imagePullPolicy: Always
+        name: phppm
+        ports:
+        - containerPort: 80
+          protocol: TCP
+        resources: {}
+        volumeMounts:
+        - mountPath: /var/www/
+          name: mcmirror-builds
+          readOnly: true
+        - mountPath: /workspace/.env
+          name: mcmirror-config
+          readOnly: true
+          subPath: .env
+      dnsPolicy: ClusterFirst
+      restartPolicy: Always
+      schedulerName: default-scheduler
+      terminationGracePeriodSeconds: 30
+      volumes:
+      - name: mcmirror-builds
+        persistentVolumeClaim:
+          claimName: mcmirror-builds
+      - configMap:
+          defaultMode: 272
+          name: mcmirror-config
+          optional: false
+        name: mcmirror-config
+  selector:
+    matchLabels:
+      workload.user.cattle.io/workloadselector: deployment-mcmirror-phppm

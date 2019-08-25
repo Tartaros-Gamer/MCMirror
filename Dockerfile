@@ -22,7 +22,7 @@ WORKDIR /workspace
 
 RUN mv "$PHP_INI_DIR/php.ini-production" "$PHP_INI_DIR/php.ini" && docker-php-ext-install -j$(nproc) pcntl
 
-COPY --from=yarn-builder /workspace /workspace
+COPY --from=yarn /workspace /workspace
 
 EXPOSE 80
 
