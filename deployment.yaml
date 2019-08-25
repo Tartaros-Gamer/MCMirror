@@ -1,3 +1,20 @@
+kind: Service
+apiVersion: v1
+metadata:
+  name: phppm-service
+  namespace: mcmirror
+spec:
+  selector:
+    app: mcmirror-phppm
+  clusterIP: None
+  ports:
+    - name: default
+      port: 42
+      protocol: TCP
+      targetPort: 42
+  sessionAffinity: None
+  type: ClusterIP
+---
 apiVersion: apps/v1
 kind: Deployment
 metadata:
