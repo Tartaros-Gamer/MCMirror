@@ -60,7 +60,9 @@
                             <th>{% trans %}Version{% endtrans %}</th>
                             <th>{% trans %}Size{% endtrans %}</th>
                             <th>{% trans %}Date{% endtrans %}</th>
-                            <th>{% trans %}Count{% endtrans %}</th>
+                            {% if env("DOWNLOAD_COUNTER") != "false" %}
+                                <th>{% trans %}Count{% endtrans %}</th>
+                            {% endif %}
                             <th>{% trans %}Direct Link{% endtrans %}</th>
                             <th>{% trans %}Download{% endtrans %}</th>
                         </tr>
@@ -72,10 +74,12 @@
                                     rel="{{ build.minecraftVersion }}">{{ build.minecraftVersion }}</td>
                                 <td>{{ build.humanSize }}</td>
                                 <td>{{ build.humanDate }}</td>
-                                <td>{{ build.downloadCounter }}</td>
+                                {% if env("DOWNLOAD_COUNTER") != "false" %}
+                                    <td>{{ build.downloadCounter }}</td>
+                                {% endif %}
                                 <td>
                                     <button class="button is-info"
-                                       data-clipboard-text="{{ url('files', {'applicationName': application.name, 'fileName': build.fileName}) }}">
+                                            data-clipboard-text="{{ url('files', {'applicationName': application.name, 'fileName': build.fileName}) }}">
                                         {% trans %}Copy Link{% endtrans %}
                                     </button>
                                 </td>
@@ -88,7 +92,8 @@
                     </table>
                     {% if builds|length == 0 %}
                         <br>
-                        <p class="subtitle">There are no Builds here. They are maybe in <a href="https://archive.mcmirror.io/">another Castle</a></p>
+                        <p class="subtitle">There are no Builds here. They are maybe in <a
+                                    href="https://archive.mcmirror.io/">another Castle</a></p>
                         <br>
                     {% endif %}
                 </div>
