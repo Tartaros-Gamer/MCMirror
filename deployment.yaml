@@ -12,7 +12,7 @@ spec:
         app: mcmirror-phppm
     spec:
       containers:
-      - image: ${CICD_IMAGE}:${CICD_EXECUTION_SEQUENCE}
+      - image: mcmirror-phppm:${CICD_EXECUTION_SEQUENCE}
         imagePullPolicy: Always
         name: phppm
         ports:

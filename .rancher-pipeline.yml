@@ -1,4 +1,4 @@
-stages:
+﻿stages:
 - name: Build
   steps:
   - publishImageConfig:
@@ -7,6 +7,11 @@ stages:
       tag: connectedgames/mcmirror:latest
       pushRemote: true
       registry: index.docker.io
+
+  - publishImageConfig:
+      dockerfilePath: ./Dockerfile
+      buildContext: .
+      tag: mcmirror-phppm:${CICD_EXECUTION_SEQUENCE}
 - name: Deploy
   steps:
   - applyYamlConfig:
