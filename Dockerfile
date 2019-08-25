@@ -8,13 +8,13 @@ RUN apt-get update && apt-get install git unzip -y --no-install-recommends \
 RUN git clone https://github.com/ConnectedGames/MCMirror.git . \
     && composer install
 
-FROM kkarczmarczyk/node-yarn as yarn-builder
+FROM node:lts-alpine as yarn
 
 WORKDIR /workspace
 
 COPY --from=php-builder /workspace /workspace
 
-RUN yarn install && yarn encore production && rm -rf node_modules
+RUN apk add yarn && yarn install && yarn encore production && rm -rf node_modules
 
 FROM php:7.3-cli-alpine
 
