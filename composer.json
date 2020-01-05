@@ -7,28 +7,27 @@
     "ext-ctype": "*",
     "ext-iconv": "*",
     "ext-json": "*",
-    "cweagans/composer-patches": "*",
     "php-pm/httpkernel-adapter": "dev-master",
-    "php-pm/php-pm": "*",
-    "ramsey/uuid": "*",
-    "sensio/framework-extra-bundle": "*",
-    "symfony/asset": "*",
-    "symfony/console": "*",
-    "symfony/finder": "*",
-    "symfony/flex": "*",
-    "symfony/framework-bundle": "*",
-    "symfony/profiler-pack": "*",
-    "symfony/translation": "*",
-    "symfony/twig-bundle": "*",
-    "symfony/web-server-bundle": "*",
-    "symfony/webpack-encore-bundle": "*",
-    "symfony/yaml": "*"
+    "php-pm/php-pm": "2.0",
+    "ramsey/uuid": "3.8.*",
+    "sensio/framework-extra-bundle": "v5.5.3",
+    "symfony/asset": "4.*",
+    "symfony/console": "4.*",
+    "symfony/finder": "4.*",
+    "symfony/flex": "1.4.*",
+    "symfony/framework-bundle": "4.*",
+    "symfony/profiler-pack": "1.*",
+    "symfony/translation": "4.*",
+    "symfony/twig-bundle": "4.*",
+    "symfony/web-server-bundle": "4.*",
+    "symfony/webpack-encore-bundle": "1.*",
+    "symfony/yaml": "4.*"
   },
   "require-dev": {
     "roave/security-advisories": "dev-master",
-    "symfony/maker-bundle": "*",
-    "symfony/dotenv": "*",
-    "friendsofphp/php-cs-fixer": "*"
+    "symfony/maker-bundle": "1.*",
+    "symfony/dotenv": "4.*",
+    "friendsofphp/php-cs-fixer": "2.*"
   },
   "config": {
     "preferred-install": {
@@ -68,17 +67,11 @@
     ]
   },
   "conflict": {
-    "symfony/symfony": "*"
+    "symfony/symfony": "4.*"
   },
   "extra": {
     "symfony": {
       "allow-contrib": false
-    },
-    "enable-patching": true,
-    "patches": {
-      "php-pm/httpkernel-adapter": {
-        "Fix Webpack Encore Bundle EntrypointLookup reset": "https://patch-diff.githubusercontent.com/raw/php-pm/php-pm-httpkernel/pull/153.patch"
-      }
     }
   }
 }
