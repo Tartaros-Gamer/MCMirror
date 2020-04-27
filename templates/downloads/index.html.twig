@@ -92,9 +92,13 @@
                     </table>
                     {% if builds|length == 0 %}
                         <br>
-                        <p class="subtitle">There are no Builds here. They are maybe in <a
-                                    href="https://archive.mcmirror.io/">another Castle</a></p>
-                        <br>
+                        {% if application.external %}
+                            <p class="subtitle">This is an external resouce, please follow the official links above</p>
+                        {% else %}
+                            <p class="subtitle">There are no Builds here. They are maybe in <a
+                                        href="https://archive.mcmirror.io/">another Castle</a></p>
+                        {% endif %}
+                            <br>
                     {% endif %}
                 </div>
             </div>

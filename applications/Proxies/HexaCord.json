@@ -2,10 +2,9 @@
   "recommended": false,
   "abandoned": false,
   "external": false,
-  "url": null,
   "name": "HexaCord",
   "category": "Proxies",
-  "officialLinks": {7
+  "officialLinks": {
     "Downloads": "https://github.com/HexagonMC/BungeeCord/releases",
     "Source (GitHub)": "https://github.com/HexagonMC/BungeeCord"
   }

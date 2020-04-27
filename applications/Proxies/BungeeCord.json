@@ -2,11 +2,10 @@
   "recommended": false,
   "abandoned": false,
   "external": true,
-  "url": "https://www.spigotmc.org/go/bungeecord",
   "name": "BungeeCord",
   "category": "Proxies",
   "officialLinks": {
-    "WebSite": "https://www.spigotmc.org/go/bungeecord",
+    "Website": "https://www.spigotmc.org/go/bungeecord",
     "CI (Jenkins)": "https://ci.md-5.net/job/BungeeCord/",
     "Source (GitHub)": "https://github.com/SpigotMC/BungeeCord",
     "Documentation": "https://www.spigotmc.org/wiki/bungeecord/",

@@ -2,11 +2,10 @@
   "recommended": false,
   "abandoned": false,
   "external": false,
-  "url": null,
   "name": "Spigot-API",
   "category": "APIs",
   "officialLinks": {
-    "WebSite": "https://www.spigotmc.org/",
+    "Website": "https://www.spigotmc.org/",
     "Source": "https://hub.spigotmc.org/stash/projects/SPIGOT/repos/spigot/browse",
     "Documentation": "https://www.spigotmc.org/wiki/spigot/",
     "JavaDocs": "https://hub.spigotmc.org/javadocs/spigot/",

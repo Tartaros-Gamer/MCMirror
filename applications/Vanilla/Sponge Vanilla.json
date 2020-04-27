@@ -2,11 +2,10 @@
   "recommended": false,
   "abandoned": false,
   "external": true,
-  "url": "https://www.spongepowered.org/downloads/spongevanilla",
   "name": "Sponge Vanilla",
   "category": "Vanilla",
   "officialLinks": {
-    "WebSite": "https://www.spongepowered.org/",
+    "Website": "https://www.spongepowered.org/",
     "Downloads": "https://www.spongepowered.org/downloads/spongevanilla",
     "Source (GitHub)": "https://github.com/SpongePowered/SpongeVanilla",
     "Documentation": "https://docs.spongepowered.org/stable/en/",

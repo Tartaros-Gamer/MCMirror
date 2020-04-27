@@ -2,11 +2,10 @@
   "recommended": false,
   "abandoned": false,
   "external": true,
-  "url": "http://catserver.moe/",
   "name": "CatServer",
   "category": "Forge",
   "officialLinks": {
-    "WebSite": "http://catserver.moe/",
+    "Website": "http://catserver.moe/",
     "Downloads": "https://github.com/Luohuayu/CatServer/releases",
     "Source (GitHub)": "https://github.com/Luohuayu/CatServer",
     "Discord": "https://discord.gg/wvBJN4d"

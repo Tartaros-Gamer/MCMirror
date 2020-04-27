@@ -2,11 +2,10 @@
   "recommended": false,
   "abandoned": false,
   "external": true,
-  "url": "https://pmmp.io/",
   "name": "PocketMine-MP",
   "category": "Pocket Edition",
   "officialLinks": {
-    "WebSite": "https://pmmp.io/",
+    "Website": "https://pmmp.io/",
     "Downloads": "https://github.com/pmmp/PocketMine-MP/releases",
     "Source (GitHub)": "https://github.com/pmmp/PocketMine-MP",
     "Documentation": "http://pmmp.readthedocs.org/",

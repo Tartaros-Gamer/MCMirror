@@ -2,11 +2,10 @@
   "recommended": false,
   "abandoned": false,
   "external": true,
-  "url": "https://cuberite.org/",
   "name": "Cuberite",
   "category": "Alternative",
   "officialLinks": {
-    "WebSite": "https://cuberite.org/",
+    "Website": "https://cuberite.org/",
     "Source (GitHub)": "https://github.com/cuberite/cuberite",
     "Documentation": "https://book.cuberite.org/",
     "Discord": "https://discord.gg/76w5J6M"

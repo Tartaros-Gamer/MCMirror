@@ -31,12 +31,7 @@ class JsonApplication implements ApplicationInterface
 
     public function isExternal(): bool
     {
-        return $this->jsonData['external'] ?? $this->getUrl() !== null;
-    }
-
-    public function getUrl(): ?string
-    {
-        return $this->jsonData['url'] ?? null;
+        return $this->jsonData['external'] ?? false;
     }
 
     public function getName(): string

@@ -15,6 +15,7 @@ class RegisterJsonApplicationsPass implements CompilerPassInterface
      * You can modify the container here before it is dumped to PHP code.
      *
      * @param ContainerBuilder $container
+     * @throws \JsonException
      */
     public function process(ContainerBuilder $container): void
     {
@@ -39,7 +40,11 @@ class RegisterJsonApplicationsPass implements CompilerPassInterface
             $fileFinder = new Finder();
             $fileFinder->files()->in($folder->getRealPath());
             foreach ($fileFinder as $file) {
-                $jsonData = json_decode($file->getContents(), true);
+                try {
+                    $jsonData = json_decode($file->getContents(), true, 512, JSON_THROW_ON_ERROR);
+                } catch (\JsonException $e) {
+                    throw new \RuntimeException(sprintf('Invalid JSON File `%s`: %s', $file->getBasename(), $e->getMessage()));
+                }
                 $existingCategories[] = $jsonData['category'];
 
                 $container->addResource(new FileResource($file->getRealPath()));
@@ -52,7 +57,7 @@ class RegisterJsonApplicationsPass implements CompilerPassInterface
             }
         }
 
-        $categoryOrder = json_decode(file_get_contents($categoriesFile), true);
+        $categoryOrder = json_decode(file_get_contents($categoriesFile), true, 512, JSON_THROW_ON_ERROR);
         $existingCategories = array_keys(array_flip($existingCategories));
 
         $container->setParameter('application.categories', $this->getCategories($existingCategories, $categoryOrder));

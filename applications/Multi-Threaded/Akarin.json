@@ -2,11 +2,10 @@
   "recommended": false,
   "abandoned": false,
   "external": true,
-  "url": "https://akarin.app/",
   "name": "Akarin",
   "category": "Multi-Threaded",
   "officialLinks": {
-    "WebSite": "https://akarin.app/",
+    "Website": "https://akarin.app/",
     "Downloads": "https://github.com/Akarin-project/Akarin/actions",
     "CI (Jenkins)": "http://josephworks.ddns.net:8080/job/Akarin-project/job/Akarin-1.15.2",
     "Source (GitHub)": "https://github.com/Akarin-project/Akarin",

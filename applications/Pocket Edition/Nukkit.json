@@ -2,11 +2,10 @@
   "recommended": false,
   "abandoned": false,
   "external": true,
-  "url": "https://nukkitx.com/",
   "name": "Nukkit",
   "category": "Pocket Edition",
   "officialLinks": {
-    "WebSite": "https://nukkitx.com/",
+    "Website": "https://nukkitx.com/",
     "CI (Jenkins)": "https://ci.nukkitx.com/job/NukkitX/job/Nukkit/job/master/",
     "Source (GitHub)": "https://github.com/NukkitX/Nukkit",
     "Documentation": "https://nukkitx.com/wiki/",

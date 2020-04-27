@@ -10,8 +10,6 @@ interface ApplicationInterface
 
     public function isExternal(): bool;
 
-    public function getUrl(): ?string;
-
     public function getName(): string;
 
     public function getCategory(): string;

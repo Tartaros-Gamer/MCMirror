@@ -2,11 +2,10 @@
   "recommended": true,
   "abandoned": false,
   "external": false,
-  "url": null,
   "name": "Paper-API",
   "category": "APIs",
   "officialLinks": {
-    "WebSite": "https://papermc.io/",
+    "Website": "https://papermc.io/",
     "Downloads": "https://papermc.io/downloads",
     "Source (GitHub)": "https://github.com/PaperMC/Paper",
     "Documentation": "https://paper.readthedocs.io/",
