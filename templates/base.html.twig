@@ -13,7 +13,7 @@
         <meta property="og:type" content="website"/>
         <meta property="og:image" content="{{ asset('build/static/icon.png') }}">
         {% block additional_meta %}
-            <meta property="og:description" content="Downloads for server software to run Minecraft servers." />
+            <meta property="og:description" content="Downloads for server software to run Minecraft servers."/>
             <meta name="description" content="Downloads for server software to run Minecraft servers.">
             <meta name="keywords" content="mcmirror, minecraft server download">
         {% endblock %}
@@ -23,13 +23,14 @@
 </head>
 <body>
 
-<section class="hero is-primary" style="background-repeat: no-repeat;background-size: cover;background: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url({{ asset('build/static/header.jpg') }});background-position: center;">
+<section class="hero is-primary"
+         style="background-repeat: no-repeat;background-size: cover;background: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url({{ asset('build/static/header.jpg') }});background-position: center;">
     <div class="hero-body">
         <div class="container has-text-centered">
             <h1 class="title">{{ env('WEBSITE_NAME')|trans }}</h1>
             <h2 class="subtitle">
                 <span>{% trans %}The future of Yives Mirror{% endtrans %}</span>
-                <br />
+                <br/>
                 <span>{% trans %}A Minecraft server software File Mirror{% endtrans %}</span>
             </h2>
         </div>
@@ -39,10 +40,11 @@
             <div id="main-navbar" class="container navbar-menu">
                 <div class="navbar-start">
                     <a class="navbar-item {% if app.request.attributes.get('_route') == 'index' %}is-active{% endif %}"
-                           href="{{ url('index') }}">{% trans %}Home{% endtrans %}</a>
-                    <a data-modal-id="#downloads-modal" class="navbar-item open-modal">{% trans %}Downloads{% endtrans %}</a>
+                       href="{{ url('index') }}">{% trans %}Home{% endtrans %}</a>
+                    <a data-modal-id="#downloads-modal"
+                       class="navbar-item open-modal">{% trans %}Downloads{% endtrans %}</a>
                     <a class="navbar-item {% if app.request.attributes.get('_route') == 'api_index' %}is-active{% endif %}"
-                           href="{{ url('api_index') }}">{% trans %}APIs{% endtrans %}</a>
+                       href="{{ url('api_index') }}">{% trans %}APIs{% endtrans %}</a>
                     <a class="navbar-item" href="https://archive.mcmirror.io/">{% trans %}Archive{% endtrans %}</a>
                 </div>
                 <div class="navbar-end">
@@ -53,25 +55,30 @@
                         <div class="navbar-dropdown animated fadeIn is-size-6">
                             {% for languageKey,languageName in availableLanguages %}
                                 {% if app.request.session.get('lang') != languageKey %}
-                                    <a href="{{ path(app.request.attributes.get('_route'),  app.request.attributes.get('_route_params')|merge({'lang': languageKey})) }}" class="navbar-item">
+                                    <a href="{{ path(app.request.attributes.get('_route'),  app.request.attributes.get('_route_params')|merge({'lang': languageKey})) }}"
+                                       class="navbar-item">
                                         {{ languageName }}
                                     </a>
                                 {% endif %}
                             {% endfor %}
                         </div>
                     </div>
-                    <a class="navbar-item" href="{{ env('PATREON_LINK') }}">
+                    {% if env('PATREON_LINK')|length != 0 %}
+                        <a class="navbar-item" href="{{ env('PATREON_LINK') }}">
                         <span class="icon">
                             <i class="fab fa-patreon"></i>
                         </span>
-                        <span>{% trans %}Patreon{% endtrans %}</span>
-                    </a>
-                    <a class="navbar-item" href="{{ env('DISCORD_LINK') }}">
+                            <span>{% trans %}Patreon{% endtrans %}</span>
+                        </a>
+                    {% endif %}
+                    {% if env('DISCORD_LINK')|length != 0 %}
+                        <a class="navbar-item" href="{{ env('DISCORD_LINK') }}">
                         <span class="icon">
                             <i class="fab fa-discord"></i>
                         </span>
-                        <span>{% trans %}Discord{% endtrans %}</span>
-                    </a>
+                            <span>{% trans %}Discord{% endtrans %}</span>
+                        </a>
+                    {% endif %}
                     <a class="navbar-item" href="{{ env('GITHUB_LINK') }}">
                         <span class="icon">
                             <i class="fab fa-github"></i>
