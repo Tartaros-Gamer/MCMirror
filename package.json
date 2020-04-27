@@ -13,6 +13,7 @@
         "bulma": "^0.7.5",
         "clipboard.js": "^1.0.1",
         "copy-webpack-plugin": "^4.6.0",
+        "core-js": "3",
         "jquery": "^3.4.1"
     },
     "devDependencies": {

@@ -112,14 +112,14 @@ class ApiController extends AbstractController
 
     private function getAllApplications()
     {
-        return array_map(function (ApplicationInterface $application) {
+        return array_map(static function (ApplicationInterface $application) {
             return $application->getName();
         }, $this->applicationService->getApplications());
     }
 
     private function getForApplication(string $applicationName)
     {
-        return array_map(function (Build $build) {
+        return array_map(static function (Build $build) {
             return $build->getFileName();
         }, $this->buildsService->getBuildsForApplication($this->applicationService->getApplication($applicationName)));
     }

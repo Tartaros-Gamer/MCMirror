@@ -3,7 +3,9 @@
 namespace App\Structs;
 
 use App\Application\ApplicationInterface;
+use DateTime;
 use Symfony\Component\Finder\SplFileInfo;
+use function strlen;
 
 class Build extends AbstractBuild
 {
@@ -70,7 +72,7 @@ class Build extends AbstractBuild
 
         [, $this->version, $this->buildHash, $buildDate, $buildTime] = $matches[0];
 
-        $this->buildDate = \DateTime::createFromFormat('Ymd-Hi', $buildDate . '-' . $buildTime);
+        $this->buildDate = DateTime::createFromFormat('Ymd-Hi', $buildDate . '-' . $buildTime);
     }
 
     public function getHumanSize(): string
@@ -103,7 +105,7 @@ class Build extends AbstractBuild
         return $this->buildHash;
     }
 
-    public function getBuildDate(): \DateTime
+    public function getBuildDate(): DateTime
     {
         return $this->buildDate;
     }
@@ -141,7 +143,7 @@ class Build extends AbstractBuild
     protected function getHumanFilesize($bytes, $decimals = 2): string
     {
         $sz = 'BKMGTP';
-        $factor = (int) floor((\strlen((string) $bytes) - 1) / 3);
+        $factor = (int) floor((strlen((string) $bytes) - 1) / 3);
 
         return sprintf("%.{$decimals}f", $bytes / (1024 ** $factor)) . @$sz[$factor];
     }

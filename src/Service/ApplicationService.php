@@ -63,7 +63,7 @@ class ApplicationService
         }
 
         foreach ($orderedApplications as $categoryName => &$applications) {
-            usort($applications, function (ApplicationInterface $applicationA, ApplicationInterface $applicationB) {
+            usort($applications, static function (ApplicationInterface $applicationA, ApplicationInterface $applicationB) {
                 $i = 0;
                 if ($applicationA->isRecommended() && !$applicationB->isRecommended()) {
                     --$i;

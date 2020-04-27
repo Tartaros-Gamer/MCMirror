@@ -53,9 +53,6 @@
     "guzzlehttp/psr7": {
         "version": "1.5.2"
     },
-    "monolog/monolog": {
-        "version": "1.24.0"
-    },
     "nikic/php-parser": {
         "version": "v4.1.0"
     },
@@ -72,6 +69,9 @@
         "version": "1.0.1"
     },
     "psr/container": {
+        "version": "1.0.0"
+    },
+    "psr/event-dispatcher": {
         "version": "1.0.0"
     },
     "psr/http-message": {
@@ -288,15 +288,6 @@
             "branch": "master",
             "version": "3.3",
             "ref": "6bdfa1a95f6b2e677ab985cd1af2eae35d62e0f6"
-        }
-    },
-    "symfony/web-server-bundle": {
-        "version": "3.3",
-        "recipe": {
-            "repo": "github.com/symfony/recipes",
-            "branch": "master",
-            "version": "3.3",
-            "ref": "dae9b39fd6717970be7601101ce5aa960bf53d9a"
         }
     },
     "symfony/webpack-encore-bundle": {

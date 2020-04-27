@@ -28,14 +28,14 @@ class SetTemplateApplicationVarSubscriber implements EventSubscriberInterface
         $this->availableLanguages = $availableLanguages;
     }
 
-    public static function getSubscribedEvents()
+    public static function getSubscribedEvents(): array
     {
         return [
             'kernel.request' => 'onKernelRequest',
         ];
     }
 
-    public function onKernelRequest()
+    public function onKernelRequest(): void
     {
         $this->environment->addGlobal('sortedApplications', $this->applicationService->getApplicationOrderedByCategory());
         $this->environment->addGlobal('allApplications', $this->applicationService->getApplications());

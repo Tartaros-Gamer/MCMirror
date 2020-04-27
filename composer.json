@@ -8,25 +8,24 @@
     "ext-iconv": "*",
     "ext-json": "*",
     "php-pm/httpkernel-adapter": "dev-master",
-    "php-pm/php-pm": "2.0",
+    "php-pm/php-pm": "2.0.*",
     "ramsey/uuid": "3.8.*",
     "sensio/framework-extra-bundle": "v5.5.3",
-    "symfony/asset": "4.*",
-    "symfony/console": "4.*",
-    "symfony/finder": "4.*",
+    "symfony/asset": "5.0.*",
+    "symfony/console": "5.0.*",
+    "symfony/finder": "5.0.*",
     "symfony/flex": "1.4.*",
-    "symfony/framework-bundle": "4.*",
+    "symfony/framework-bundle": "5.0.*",
     "symfony/profiler-pack": "1.*",
-    "symfony/translation": "4.*",
-    "symfony/twig-bundle": "4.*",
-    "symfony/web-server-bundle": "4.*",
+    "symfony/translation": "5.0.*",
+    "symfony/twig-bundle": "5.0.*",
     "symfony/webpack-encore-bundle": "1.*",
-    "symfony/yaml": "4.*"
+    "symfony/yaml": "5.0.*"
   },
   "require-dev": {
     "roave/security-advisories": "dev-master",
     "symfony/maker-bundle": "1.*",
-    "symfony/dotenv": "4.*",
+    "symfony/dotenv": "5.0.*",
     "friendsofphp/php-cs-fixer": "2.*"
   },
   "config": {
@@ -67,11 +66,12 @@
     ]
   },
   "conflict": {
-    "symfony/symfony": "4.*"
+    "symfony/symfony": "*"
   },
   "extra": {
     "symfony": {
-      "allow-contrib": false
+      "allow-contrib": true,
+      "require": "5.0.*"
     }
   }
 }

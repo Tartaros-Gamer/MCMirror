@@ -16,8 +16,8 @@ class CollectLanguagesCompilerPass implements CompilerPassInterface
      */
     public function process(ContainerBuilder $container): void
     {
-        $rootDir = $container->getParameter('kernel.root_dir');
-        $translationsPath = $rootDir . '/../translations';
+        $rootDir = $container->getParameter('kernel.project_dir');
+        $translationsPath = $rootDir . '/translations';
 
         $finder = new Finder();
         $finder->files()->in($translationsPath)->name('messages.*.yml');

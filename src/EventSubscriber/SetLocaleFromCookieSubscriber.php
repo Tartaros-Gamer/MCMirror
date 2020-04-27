@@ -4,7 +4,7 @@ namespace App\EventSubscriber;
 
 use Symfony\Component\EventDispatcher\EventSubscriberInterface;
 use Symfony\Component\HttpFoundation\Session\Session;
-use Symfony\Component\HttpKernel\Event\GetResponseEvent;
+use Symfony\Component\HttpKernel\Event\RequestEvent;
 
 class SetLocaleFromCookieSubscriber implements EventSubscriberInterface
 {
@@ -15,7 +15,7 @@ class SetLocaleFromCookieSubscriber implements EventSubscriberInterface
         $this->defaultLocale = $defaultLocale;
     }
 
-    public function onKernelRequest(GetResponseEvent $event)
+    public function onKernelRequest(RequestEvent $event): void
     {
         $request = $event->getRequest();
         if ($request->getSession() === null) {
@@ -35,7 +35,7 @@ class SetLocaleFromCookieSubscriber implements EventSubscriberInterface
         $request->setLocale($request->getSession()->get('lang'));
     }
 
-    public static function getSubscribedEvents()
+    public static function getSubscribedEvents(): array
     {
         return [
             'kernel.request' => ['onKernelRequest', 20],

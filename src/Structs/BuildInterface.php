@@ -2,6 +2,7 @@
 
 namespace App\Structs;
 
+use DateTime;
 use Symfony\Component\Finder\SplFileInfo;
 
 interface BuildInterface
@@ -18,7 +19,7 @@ interface BuildInterface
 
     public function getBuildHash(): string;
 
-    public function getBuildDate(): \DateTime;
+    public function getBuildDate(): DateTime;
 
     public function getDirectLink(): string;
 

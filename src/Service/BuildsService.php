@@ -10,6 +10,7 @@ use Symfony\Component\Filesystem\Filesystem;
 use Symfony\Component\Finder\Finder;
 use Symfony\Component\Finder\SplFileInfo;
 use Symfony\Component\Routing\RouterInterface;
+use const DIRECTORY_SEPARATOR;
 
 class BuildsService
 {
@@ -71,12 +72,12 @@ class BuildsService
 
     public function getPathForBuild(ApplicationInterface $application, string $fileName): string
     {
-        return $this->getPathForApplication($application) . \DIRECTORY_SEPARATOR . $fileName;
+        return $this->getPathForApplication($application) . DIRECTORY_SEPARATOR . $fileName;
     }
 
     public function getPathForApplication(ApplicationInterface $application): string
     {
-        return getenv('DATA_PATH') . \DIRECTORY_SEPARATOR . $application->getName();
+        return getenv('DATA_PATH') . DIRECTORY_SEPARATOR . $application->getName();
     }
 
     public function doesBuildExist(ApplicationInterface $application, string $fileName): bool
@@ -199,10 +200,9 @@ class BuildsService
         $finder->files()->in($applicationPath)->name($fileName);
 
         if ($finder->count() === 1) {
-            /* @noinspection SuspiciousLoopInspection */
-            foreach ($finder as $file) {
-                return $file;
-            }
+            $iterator = $finder->getIterator();
+            $iterator->rewind();
+            return $iterator->current();
         }
 
         return null;

@@ -4,17 +4,18 @@ namespace App\Service;
 
 use App\Application\ApplicationInterface;
 use App\Structs\BuildInterface;
+use Redis;
 
 class RedisDownloadCounter implements DownloadCounterInterface
 {
-    /** @var \Redis */
+    /** @var Redis */
     private $redis;
 
     public function boot(): void
     {
-        $this->redis = new \Redis();
+        $this->redis = new Redis();
         $this->redis->connect(getenv('REDIS_HOST'));
-        $this->redis->setOption(\Redis::OPT_SCAN, (string) \Redis::SCAN_RETRY);
+        $this->redis->setOption(Redis::OPT_SCAN, (string) Redis::SCAN_RETRY);
     }
 
     public function getName(): string

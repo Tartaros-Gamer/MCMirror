@@ -3,11 +3,15 @@
 namespace App\CompilerPass;
 
 use App\Application\JsonApplication;
+use JsonException;
+use RuntimeException;
 use Symfony\Component\Config\Resource\DirectoryResource;
 use Symfony\Component\Config\Resource\FileResource;
 use Symfony\Component\DependencyInjection\Compiler\CompilerPassInterface;
 use Symfony\Component\DependencyInjection\ContainerBuilder;
 use Symfony\Component\Finder\Finder;
+use function in_array;
+use const DIRECTORY_SEPARATOR;
 
 class RegisterJsonApplicationsPass implements CompilerPassInterface
 {
@@ -15,14 +19,14 @@ class RegisterJsonApplicationsPass implements CompilerPassInterface
      * You can modify the container here before it is dumped to PHP code.
      *
      * @param ContainerBuilder $container
-     * @throws \JsonException
+     * @throws JsonException
      */
     public function process(ContainerBuilder $container): void
     {
-        $rootDir = $container->getParameter('kernel.root_dir');
-        $applicationsPath = $rootDir . '/../applications';
+        $rootDir = $container->getParameter('kernel.project_dir');
+        $applicationsPath = $rootDir . '/applications';
 
-        $categoriesFile = $applicationsPath . \DIRECTORY_SEPARATOR . 'Categories.json';
+        $categoriesFile = $applicationsPath . DIRECTORY_SEPARATOR . 'Categories.json';
 
         $container->addResource(new DirectoryResource($applicationsPath));
         $container->addResource(new FileResource($categoriesFile));
@@ -42,8 +46,8 @@ class RegisterJsonApplicationsPass implements CompilerPassInterface
             foreach ($fileFinder as $file) {
                 try {
                     $jsonData = json_decode($file->getContents(), true, 512, JSON_THROW_ON_ERROR);
-                } catch (\JsonException $e) {
-                    throw new \RuntimeException(sprintf('Invalid JSON File `%s`: %s', $file->getBasename(), $e->getMessage()));
+                } catch (JsonException $e) {
+                    throw new RuntimeException(sprintf('Invalid JSON File `%s`: %s', $file->getBasename(), $e->getMessage()));
                 }
                 $existingCategories[] = $jsonData['category'];
 
@@ -73,12 +77,12 @@ class RegisterJsonApplicationsPass implements CompilerPassInterface
         $orderedCategories = [];
 
         foreach ($categoryOrder as $orderKey => $orderCategory) {
-            if (\in_array($orderCategory, $existingCategories, true)) {
+            if (in_array($orderCategory, $existingCategories, true)) {
                 $orderedCategories[$orderKey] = $orderCategory;
             }
         }
         foreach ($existingCategories as $key => $category) {
-            if (\in_array($category, $categoryOrder, true)) {
+            if (in_array($category, $categoryOrder, true)) {
                 unset($existingCategories[$key]);
                 continue;
             }
