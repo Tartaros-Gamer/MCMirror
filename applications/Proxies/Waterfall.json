@@ -2,8 +2,14 @@
   "recommended": true,
   "abandoned": false,
   "external": true,
-  "url": "https:\/\/papermc.io\/downloads#Waterfall",
+  "url": "https://papermc.io/downloads#Waterfall",
   "name": "Waterfall",
   "category": "Proxies",
-  "officialLinks": {}
+  "officialLinks": {
+    "WebSite": "https://papermc.io/",
+    "Downloads": "https://papermc.io/downloads#Waterfall",
+    "Source (GitHub)": "https://github.com/PaperMC/Waterfall",
+    "JavaDocs": "https://papermc.io/javadocs/waterfall/",
+    "Discord": "https://discordapp.com/invite/papermc"
+  }
 }

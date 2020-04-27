@@ -1,13 +1,13 @@
 {
   "recommended": false,
-  "abandoned": false,
+  "abandoned": true,
   "external": true,
   "url": "https://gitlab.com/DivineCode/Atom/Atom",
   "name": "Atom",
   "category": "Forge",
   "officialLinks": {
-    "GitLab": "https://gitlab.com/DivineCode/Atom/Atom",
     "Downloads": "https://gitlab.com/Divinecode/Atom/Atom/pipelines",
+    "Source (GitLab)": "https://gitlab.com/DivineCode/Atom/Atom",
     "Discord": "https://discord.gg/AZKFBzd"
-    }
+  }
 }

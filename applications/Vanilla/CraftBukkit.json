@@ -5,7 +5,13 @@
   "url": null,
   "name": "CraftBukkit",
   "category": "Vanilla",
-  "officialLinks": {},
+  "officialLinks": {
+    "WebSite": "https://www.spigotmc.org/",
+    "Source": "https://hub.spigotmc.org/stash/projects/SPIGOT/repos/craftbukkit/browse",
+    "Documentation": "https://www.spigotmc.org/wiki/spigot/",
+    "JavaDocs": "https://hub.spigotmc.org/javadocs/bukkit/",
+    "Discord": "https://www.spigotmc.org/go/discord"
+  },
   "versionGroupOverride": {
     "legacy": "/[a-zA-Z]-[0-9]+-[a-z0-9]+.jar/"
   }

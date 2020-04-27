@@ -2,11 +2,11 @@
   "recommended": false,
   "abandoned": false,
   "external": true,
-  "url": "https://Uraniummc.cc",
+  "url": "https://uraniummc.cc",
   "name": "Uranium",
   "category": "Forge",
-  "officialLinks": {},
-
-  "versionGroupOverride": {
+  "officialLinks": {
+    "WebSite": "https://uraniummc.cc",
+    "Source (GitHub)": "https://github.com/UraniumMC/Uranium"
   }
 }

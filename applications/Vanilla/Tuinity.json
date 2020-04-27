@@ -1,0 +1,14 @@
+{
+  "recommended": false,
+  "abandoned": false,
+  "external": false,
+  "url": null,
+  "name": "Tuinity",
+  "category": "Vanilla",
+  "officialLinks": {
+    "CI (Jenkins)": "https://ci.codemc.io/job/Spottedleaf/job/Tuinity/",
+    "Source (GitHub)": "https://github.com/Spottedleaf/Tuinity",
+    "Documentation": "https://github.com/Spottedleaf/Tuinity/wiki",
+    "Discord": "https://discord.gg/CgDPu27"
+  }
+}

@@ -2,8 +2,12 @@
   "recommended": false,
   "abandoned": false,
   "external": true,
-  "url": "http:\/\/ci.lilypadmc.org\/",
+  "url": "http://www.lilypadmc.org/",
   "name": "Lilypad",
   "category": "Proxies",
-  "officialLinks": {}
+  "officialLinks": {
+    "WebSite": "http://www.lilypadmc.org/",
+    "CI (Jenkins)": "http://ci.lilypadmc.org/job/Go-Server-Proxy/",
+    "Source (GitHub)": "https://github.com/LilyPad/GoLilyPad/"
+  }
 }

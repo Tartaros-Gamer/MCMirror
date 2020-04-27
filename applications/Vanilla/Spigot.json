@@ -5,5 +5,11 @@
   "url": null,
   "name": "Spigot",
   "category": "Vanilla",
-  "officialLinks": {}
+  "officialLinks": {
+    "WebSite": "https://www.spigotmc.org/",
+    "Source": "https://hub.spigotmc.org/stash/projects/SPIGOT/repos/spigot/browse",
+    "Documentation": "https://www.spigotmc.org/wiki/spigot/",
+    "JavaDocs": "https://hub.spigotmc.org/javadocs/spigot/",
+    "Discord": "https://www.spigotmc.org/go/discord"
+  }
 }

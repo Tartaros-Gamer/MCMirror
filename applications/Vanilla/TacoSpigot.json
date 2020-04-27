@@ -5,5 +5,7 @@
   "url": null,
   "name": "TacoSpigot",
   "category": "Vanilla",
-  "officialLinks": {}
+  "officialLinks": {
+    "Source (GitHub)": "https://github.com/TacoSpigot/TacoSpigot"
+  }
 }

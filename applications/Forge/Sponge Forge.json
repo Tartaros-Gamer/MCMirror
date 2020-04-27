@@ -2,8 +2,15 @@
   "recommended": false,
   "abandoned": false,
   "external": true,
-  "url": "https:\/\/www.spongepowered.org\/downloads\/spongeforge",
+  "url": "https://www.spongepowered.org/downloads/spongeforge",
   "name": "Sponge Forge",
   "category": "Forge",
-  "officialLinks": {}
+  "officialLinks": {
+    "WebSite": "https://www.spongepowered.org/",
+    "Downloads": "https://www.spongepowered.org/downloads/spongeforge",
+    "Source (GitHub)": "https://github.com/SpongePowered/SpongeForge",
+    "Documentation": "https://docs.spongepowered.org/stable/en/",
+    "JavaDocs": "https://jd.spongepowered.org/7.2.0/",
+    "Discord": "https://discord.gg/sponge"
+  }
 }

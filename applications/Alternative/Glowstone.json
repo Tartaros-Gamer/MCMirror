@@ -2,8 +2,16 @@
   "recommended": false,
   "abandoned": false,
   "external": true,
-  "url": "https:\/\/glowstone.net\/#downloads",
+  "url": "https://glowstone.net/",
   "name": "Glowstone",
   "category": "Alternative",
-  "officialLinks": {}
+  "officialLinks": {
+    "WebSite": "https://glowstone.net/",
+    "Downloads": "https://glowstone.net/#downloads",
+    "Source (GitHub)": "https://github.com/GlowstoneMC/Glowstone",
+    "Documentation": "https://docs.glowstone.net/",
+    "JavaDocs (API)": "https://glowstone.net/jd/glowkit/",
+    "JavaDocs (Internals)": "https://glowstone.net/jd/glowstone/",
+    "Discord": "https://discordapp.com/invite/TFJqhsC"
+  }
 }

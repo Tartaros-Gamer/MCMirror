@@ -2,8 +2,14 @@
   "recommended": false,
   "abandoned": false,
   "external": true,
-  "url": "https:\/\/papermc.io\/downloads#Travertine",
+  "url": "https://papermc.io/downloads#Travertine",
   "name": "Travertine",
   "category": "Proxies",
-  "officialLinks": {}
+  "officialLinks": {
+    "WebSite": "https://papermc.io/",
+    "Downloads": "https://papermc.io/downloads#Travertine",
+    "Source (GitHub)": "https://github.com/PaperMC/Travertine",
+    "JavaDocs": "https://papermc.io/javadocs/waterfall/",
+    "Discord": "https://discordapp.com/invite/papermc"
+  }
 }

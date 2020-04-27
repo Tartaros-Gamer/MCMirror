@@ -1,13 +1,14 @@
 {
   "recommended": false,
-  "abandoned": false,
+  "abandoned": true,
   "external": true,
   "url": "https://github.com/KettleFoundation/Kettle",
   "name": "Kettle",
   "category": "Forge",
   "officialLinks": {
-    "GitLab": "https://gitlab.com/KettleFoundation/kettle",
     "Downloads": "https://github.com/KettleFoundation/Kettle/releases",
+    "Source (GitHub)": "https://github.com/KettleFoundation/Kettle",
+    "Source (GitLab)": "https://gitlab.com/KettleFoundation/kettle",
     "Discord": "https://discord.gg/RqDjbcM"
-    }
+  }
 }

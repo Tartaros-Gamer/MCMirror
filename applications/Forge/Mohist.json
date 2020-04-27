@@ -1,12 +1,14 @@
 {
-  "recommended": false,
+  "recommended": true,
   "abandoned": false,
   "external": true,
-  "url": "https://github.com/Mohist-Community/Mohist",
+  "url": "https://mohist.red/",
   "name": "Mohist",
   "category": "Forge",
-  "officialLinks": {},
-
-  "versionGroupOverride": {
+  "officialLinks": {
+    "Downloads": "https://mohist.red/download/",
+    "CI (Jenkins)": "https://ci.codemc.io/job/Mohist-Community/",
+    "Source (GitHub)": "https://github.com/Mohist-Community/Mohist",
+    "Discord": "https://discord.gg/ZgXjHGd"
   }
 }

@@ -2,8 +2,15 @@
   "recommended": false,
   "abandoned": false,
   "external": true,
-  "url": "https:\/\/ci.md-5.net\/job\/BungeeCord\/",
+  "url": "https://www.spigotmc.org/go/bungeecord",
   "name": "BungeeCord",
   "category": "Proxies",
-  "officialLinks": {}
+  "officialLinks": {
+    "WebSite": "https://www.spigotmc.org/go/bungeecord",
+    "CI (Jenkins)": "https://ci.md-5.net/job/BungeeCord/",
+    "Source (GitHub)": "https://github.com/SpigotMC/BungeeCord",
+    "Documentation": "https://www.spigotmc.org/wiki/bungeecord/",
+    "JavaDocs": "https://ci.md-5.net/job/BungeeCord/ws/api/target/apidocs/overview-summary.html",
+    "Discord": "https://www.spigotmc.org/go/discord"
+  }
 }

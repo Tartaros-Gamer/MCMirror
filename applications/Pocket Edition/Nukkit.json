@@ -2,8 +2,14 @@
   "recommended": false,
   "abandoned": false,
   "external": true,
-  "url": "https:\/\/ci.nukkitx.com\/job\/NukkitX\/job\/Nukkit\/job\/master\/",
+  "url": "https://nukkitx.com/",
   "name": "Nukkit",
   "category": "Pocket Edition",
-  "officialLinks": {}
+  "officialLinks": {
+    "WebSite": "https://nukkitx.com/",
+    "CI (Jenkins)": "https://ci.nukkitx.com/job/NukkitX/job/Nukkit/job/master/",
+    "Source (GitHub)": "https://github.com/NukkitX/Nukkit",
+    "Documentation": "https://nukkitx.com/wiki/",
+    "Discord": "https://nukkitx.com/discord/"
+  }
 }

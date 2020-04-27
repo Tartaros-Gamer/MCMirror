@@ -2,8 +2,15 @@
   "recommended": false,
   "abandoned": false,
   "external": true,
-  "url": "https:\/\/www.spongepowered.org\/downloads\/spongevanilla",
+  "url": "https://www.spongepowered.org/downloads/spongevanilla",
   "name": "Sponge Vanilla",
   "category": "Vanilla",
-  "officialLinks": {}
+  "officialLinks": {
+    "WebSite": "https://www.spongepowered.org/",
+    "Downloads": "https://www.spongepowered.org/downloads/spongevanilla",
+    "Source (GitHub)": "https://github.com/SpongePowered/SpongeVanilla",
+    "Documentation": "https://docs.spongepowered.org/stable/en/",
+    "JavaDocs": "https://jd.spongepowered.org/7.2.0/",
+    "Discord": "https://discord.gg/sponge"
+  }
 }

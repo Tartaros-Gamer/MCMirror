@@ -5,5 +5,7 @@
   "url": null,
   "name": "Torch",
   "category": "Multi-Threaded",
-  "officialLinks": {}
+  "officialLinks": {
+    "Source (GitHub)": "https://github.com/TorchSpigot/Torch"
+  }
 }

@@ -5,5 +5,11 @@
   "url": "https://www.reforged.gg/",
   "name": "Pixelmon",
   "category": "Mods",
-  "officialLinks": {}
+  "officialLinks": {
+    "WebSite": "https://www.reforged.gg/",
+    "Downloads": "https://pixelmonmod.com/downloads.php",
+    "Documentation": "https://pixelmonmod.com/wiki",
+    "JavaDocs": "https://reforged.gg/docs/",
+    "Discord": "https://discordapp.com/invite/pixelmon"
+  }
 }

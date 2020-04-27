@@ -2,8 +2,15 @@
   "recommended": false,
   "abandoned": false,
   "external": true,
-  "url": "https:\/\/www.velocitypowered.com\/downloads",
+  "url": "https://www.velocitypowered.com/",
   "name": "Velocity",
   "category": "Proxies",
-  "officialLinks": {}
+  "officialLinks": {
+    "WebSite": "https://www.velocitypowered.com/",
+    "Downloads": "https://www.velocitypowered.com/downloads",
+    "Source (GitHub)": "https://github.com/VelocityPowered/Velocity",
+    "Documentation": "https://docs.velocitypowered.com/",
+    "JavaDocs": "https://jd.velocitypowered.com/",
+    "Discord": "https://discord.gg/8cB9Bgf"
+  }
 }

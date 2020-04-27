@@ -5,5 +5,12 @@
   "url": null,
   "name": "Paper-API",
   "category": "APIs",
-  "officialLinks": {}
+  "officialLinks": {
+    "WebSite": "https://papermc.io/",
+    "Downloads": "https://papermc.io/downloads",
+    "Source (GitHub)": "https://github.com/PaperMC/Paper",
+    "Documentation": "https://paper.readthedocs.io/",
+    "JavaDocs": "https://papermc.io/javadocs/",
+    "Discord": "https://discordapp.com/invite/papermc"
+  }
 }
