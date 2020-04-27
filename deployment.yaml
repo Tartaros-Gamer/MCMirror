@@ -6,7 +6,6 @@ metadata:
 spec:
   selector:
     app: mcmirror-phppm
-  clusterIP: None
   ports:
     - name: default
       port: 42
