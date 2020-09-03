@@ -6,9 +6,7 @@ use App\Application\ApplicationInterface;
 use App\Structs\Build;
 use App\Structs\BuildInterface;
 use App\Structs\LatestBuild;
-use Symfony\Component\Filesystem\Filesystem;
-use Symfony\Component\Finder\Finder;
-use Symfony\Component\Finder\SplFileInfo;
+use League\Flysystem\FilesystemInterface;
 use Symfony\Component\Routing\RouterInterface;
 use const DIRECTORY_SEPARATOR;
 
@@ -22,17 +20,23 @@ class BuildsService
      * @var DownloadCounterService
      */
     private $downloadCounter;
+    /**
+     * @var FilesystemInterface
+     */
+    private $buildsFilesystem;
 
     /**
      * BuildsService constructor.
      *
-     * @param RouterInterface        $router
+     * @param RouterInterface $router
      * @param DownloadCounterService $downloadCounter
+     * @param FilesystemInterface $buildsFilesystem
      */
-    public function __construct(RouterInterface $router, DownloadCounterService $downloadCounter)
+    public function __construct(RouterInterface $router, DownloadCounterService $downloadCounter, FilesystemInterface $buildsFilesystem)
     {
         $this->router = $router;
         $this->downloadCounter = $downloadCounter;
+        $this->buildsFilesystem = $buildsFilesystem;
     }
 
     /**
@@ -67,7 +71,7 @@ class BuildsService
             return $latestBuild;
         }
 
-        return $this->getBuildForFile($application, $this->getSplFile($application, $fileName));
+        return $this->getBuildForFile($application, $fileName);
     }
 
     public function getPathForBuild(ApplicationInterface $application, string $fileName): string
@@ -77,17 +81,12 @@ class BuildsService
 
     public function getPathForApplication(ApplicationInterface $application): string
     {
-        return getenv('DATA_PATH') . DIRECTORY_SEPARATOR . $application->getName();
+        return $application->getName();
     }
 
     public function doesBuildExist(ApplicationInterface $application, string $fileName): bool
     {
-        $latestBuild = $this->getLatestBuildForApplication($application);
-        if ($latestBuild !== null && $fileName === $latestBuild->getFileName()) {
-            return $latestBuild->getFile() !== null;
-        }
-
-        return $this->getSplFile($application, $fileName) !== null;
+        return $this->buildsFilesystem->has($this->getPathForBuild($application, $fileName));
     }
 
     private function findLatestBuild(ApplicationInterface $application, array $builds): ?LatestBuild
@@ -117,7 +116,8 @@ class BuildsService
 
         return new LatestBuild(
             $application,
-            $highestVersion->getFile(),
+            $highestVersion->getFileName(),
+            $highestVersion->getByteSize(),
             $highestVersion->getDirectLink(),
             $highestVersion->getGrabLink(),
             $highestVersion->getDownloadCounter()
@@ -133,18 +133,11 @@ class BuildsService
     {
         $applicationPath = $this->getPathForApplication($application);
 
-        $finder = new Finder();
-        $filesystem = new Filesystem();
-
-        if ($filesystem->exists($applicationPath) === false)  {
-            return [];
-        }
-
-        $finder->files()->in($applicationPath);
+        $files = $this->buildsFilesystem->listContents($applicationPath);
 
         $builds = [];
-        foreach ($finder as $file) {
-            $builds[] = $this->getBuildForFile($application, $file);
+        foreach ($files as $file) {
+            $builds[] = $this->getBuildForFile($application, $file['basename']);
         }
 
         return $builds;
@@ -163,48 +156,32 @@ class BuildsService
         return version_compare($versionA, $versionB) === 1;
     }
 
-    private function getBuildForFile(ApplicationInterface $application, SplFileInfo $file): BuildInterface
+    private function getBuildForFile(ApplicationInterface $application, string $fileName): BuildInterface
     {
-        $directLink = $this->getDirectLinkForFile($application, $file);
+        $directLink = $this->getDirectLinkForFile($application, $fileName);
 
-        $grabLink = $this->getGrabLinkForFile($application, $file);
+        $grabLink = $this->getGrabLinkForFile($application, $fileName);
 
-        $build = new Build($application, $file, $directLink, $grabLink);
+        $build = new Build($application, $fileName, $this->buildsFilesystem->getSize($this->getPathForBuild($application, $fileName)), $directLink, $grabLink);
 
         $build->setDownloadCounter($this->downloadCounter->getCounter($application, $build));
 
         return $build;
     }
 
-    private function getDirectLinkForFile(ApplicationInterface $application, SplFileInfo $file): string
+    private function getDirectLinkForFile(ApplicationInterface $application, string $fileName): string
     {
         return $this->router->generate('files', [
             'applicationName' => $application->getName(),
-            'fileName'        => $file->getFilename(),
+            'fileName'        => $fileName,
         ], RouterInterface::ABSOLUTE_URL);
     }
 
-    private function getGrabLinkForFile(ApplicationInterface $application, SplFileInfo $file): string
+    private function getGrabLinkForFile(ApplicationInterface $application, string $fileName): string
     {
         return $this->router->generate('grab', [
             'applicationName' => $application->getName(),
-            'fileName'        => $file->getFilename(),
+            'fileName'        => $fileName,
         ], RouterInterface::ABSOLUTE_URL);
-    }
-
-    private function getSplFile(ApplicationInterface $application, string $fileName): ?SplFileInfo
-    {
-        $applicationPath = $this->getPathForApplication($application);
-
-        $finder = new Finder();
-        $finder->files()->in($applicationPath)->name($fileName);
-
-        if ($finder->count() === 1) {
-            $iterator = $finder->getIterator();
-            $iterator->rewind();
-            return $iterator->current();
-        }
-
-        return null;
     }
 }

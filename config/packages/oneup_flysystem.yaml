@@ -1,0 +1,10 @@
+# Read the documentation: https://github.com/1up-lab/OneupFlysystemBundle/tree/master/Resources/doc/index.md
+oneup_flysystem:
+    adapters:
+        builds_adapter:
+            local:
+                directory: '%env(DATA_PATH)%'
+    filesystems:
+        builds_filesystem:
+            adapter: builds_adapter
+            alias: League\Flysystem\Filesystem

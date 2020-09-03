@@ -17,9 +17,9 @@ class Build extends AbstractBuild
     protected $application;
 
     /**
-     * @var SplFileInfo
+     * @var string
      */
-    protected $file;
+    protected $fileName;
 
     /**
      * @var string
@@ -52,23 +52,30 @@ class Build extends AbstractBuild
     protected $buildHash;
 
     /**
+     * @var int
+     */
+    protected $size;
+
+    /**
      * Build constructor.
      *
      * @param ApplicationInterface $application
-     * @param SplFileInfo          $file
-     * @param string               $directLink
-     * @param string               $grabLink
-     * @param int                  $downloadCounter
+     * @param string $fileName
+     * @param int $size
+     * @param string $directLink
+     * @param string $grabLink
+     * @param int $downloadCounter
      */
-    public function __construct(ApplicationInterface $application, SplFileInfo $file, string $directLink, string $grabLink, int $downloadCounter = 0)
+    public function __construct(ApplicationInterface $application, string $fileName, int $size, string $directLink, string $grabLink, int $downloadCounter = 0)
     {
         $this->application = $application;
-        $this->file = $file;
+        $this->fileName = $fileName;
+        $this->size = $size;
         $this->directLink = $directLink;
         $this->grabLink = $grabLink;
         $this->downloadCounter = $downloadCounter;
 
-        preg_match_all(static::REGEX, $file->getFilename(), $matches, PREG_SET_ORDER, 0);
+        preg_match_all(static::REGEX, $fileName, $matches, PREG_SET_ORDER, 0);
 
         [, $this->version, $this->buildHash, $buildDate, $buildTime] = $matches[0];
 
@@ -77,12 +84,12 @@ class Build extends AbstractBuild
 
     public function getHumanSize(): string
     {
-        return $this->getHumanFilesize($this->file->getSize());
+        return $this->getHumanFilesize($this->size);
     }
 
     public function getByteSize(): int
     {
-        return $this->file->getSize();
+        return $this->size;
     }
 
     public function getHumanDate(): string
@@ -122,7 +129,7 @@ class Build extends AbstractBuild
 
     public function getFileName(): string
     {
-        return $this->file->getFilename();
+        return $this->fileName;
     }
 
     public function getDownloadCounter(): int
@@ -133,11 +140,6 @@ class Build extends AbstractBuild
     public function setDownloadCounter(int $downloadAmount): void
     {
         $this->downloadCounter = $downloadAmount;
-    }
-
-    public function getFile(): SplFileInfo
-    {
-        return $this->file;
     }
 
     protected function getHumanFilesize($bytes, $decimals = 2): string

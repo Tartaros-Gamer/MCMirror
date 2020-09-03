@@ -30,6 +30,4 @@ interface BuildInterface
     public function getApiAnswer(): array;
 
     public function getDownloadCounter(): int;
-
-    public function getFile(): SplFileInfo;
 }

@@ -7,6 +7,8 @@
     "ext-ctype": "*",
     "ext-iconv": "*",
     "ext-json": "*",
+    "league/flysystem": "^1.1",
+    "oneup/flysystem-bundle": "^3.5",
     "php-pm/httpkernel-adapter": "dev-master",
     "php-pm/php-pm": "2.0.*",
     "ramsey/uuid": "3.8.*",
@@ -23,7 +25,6 @@
     "symfony/yaml": "5.0.*"
   },
   "require-dev": {
-    "roave/security-advisories": "dev-master",
     "symfony/maker-bundle": "1.*",
     "symfony/dotenv": "5.0.*",
     "friendsofphp/php-cs-fixer": "2.*"

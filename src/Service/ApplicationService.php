@@ -3,6 +3,7 @@
 namespace App\Service;
 
 use App\Application\ApplicationInterface;
+use Traversable;
 
 class ApplicationService
 {
@@ -18,17 +19,12 @@ class ApplicationService
     /**
      * ApplicationService constructor.
      *
-     * @param iterable $applications
-     * @param array    $categories
+     * @param Traversable $applications
+     * @param array $categories
      */
-    public function __construct(iterable $applications, array $categories)
+    public function __construct(Traversable $applications, array $categories)
     {
-        $this->applications = [];
-
-        foreach ($applications as $application) {
-            $this->applications[] = $application;
-        }
-
+        $this->applications = iterator_to_array($applications);
         $this->categories = $categories;
     }
 
