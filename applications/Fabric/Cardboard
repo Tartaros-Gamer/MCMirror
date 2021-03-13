@@ -1,0 +1,10 @@
+{
+  "recommended": false,
+  "abandoned": false,
+  "external": true,
+  "name": "Cardboard",
+  "category": "Vanilla",
+  "officialLinks": {
+    "Source (GitHub)": "https://github.com/CardboardPowered/cardboard"
+  }
+}
