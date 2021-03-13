@@ -1,0 +1,10 @@
+{
+  "recommended": true,
+  "abandoned": false,
+  "external": false,
+  "name": "Yatopia",
+  "category": "Vanilla",
+  "officialLinks": {
+    "Source (GitHub)": "https://github.com/YatopiaMC/Yatopia"
+  }
+}
