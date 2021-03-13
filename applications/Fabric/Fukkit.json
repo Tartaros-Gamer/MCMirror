@@ -1,7 +1,7 @@
 {
   "recommended": false,
   "abandoned": false,
-  "external": false,
+  "external": true,
   "name": "Fukkit",
   "category": "Fabric",
   "officialLinks": {
