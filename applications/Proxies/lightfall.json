@@ -1,0 +1,11 @@
+{
+  "recommended": true,
+  "abandoned": false,
+  "external": true,
+  "name": "falllight",
+  "category": "Proxies",
+  "officialLinks": {
+    "Downloads": "https://github.com/ArclightPowered/lightfall/actions",
+    "Source (GitHub)": "https://github.com/ArclightPowered/lightfall"
+  }
+}
