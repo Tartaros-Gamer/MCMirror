@@ -1,0 +1,14 @@
+{
+  "recommended": false,
+  "abandoned": false,
+  "external": true,
+  "name": "Geyser",
+  "category": "Proxies",
+  "officialLinks": {
+    "Website": "https://geysermc.org/",
+    "Downloads": "http://ci.geysermc.org/",
+    "Source (GitHub)": "https://github.com/GeyserMC/Geyser",
+    "Documentation": "https://github.com/GeyserMC/Geyser/wiki",
+    "Discord": "http://discord.geysermc.org/"
+  }
+}
