@@ -1,0 +1,15 @@
+{
+  "recommended": true,
+  "abandoned": false,
+  "external": true,
+  "name": "Sponge-API",
+  "category": "APIs",
+  "officialLinks": {
+    "Website": "https://www.spongepowered.org/",
+    "Source": "https://github.com/SpongePowered/SpongeAPI",
+    "Forum": "https://forums.spongepowered.org/"
+    "Documentation": "https://docs.spongepowered.org/",
+    "JavaDocs": "https://jd.spongepowered.org/",
+    "IRC": "https://kiwiirc.com/client/irc.esper.net:+6697/?nick=sponge%7C?#spongedev"
+  }
+}
